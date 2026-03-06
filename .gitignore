@@ -1,0 +1,13 @@
+# Credenciales y configuración local
+*.local
+.env
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Azure Data Studio
+*.dacpac
+*.bacpac
