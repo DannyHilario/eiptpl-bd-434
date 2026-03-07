@@ -1,33 +1,25 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Propósito
 
 Repositorio educativo para la enseñanza de bases de datos relacionales usando **Microsoft SQL Server (MSSQL)**. Orientado a estudiantes con conocimientos básicos de programación.
 
-## Estructura del Proyecto
-
-```
-eiptpl-bd-434/
-├── temas/              # Contenido por unidad temática
-│   ├── 01-intro/       # Scripts y ejercicios de cada tema
-│   ├── 02-ddl/
-│   └── ...
-├── proyectos/          # Proyectos integradores
-├── soluciones/         # Soluciones a ejercicios (rama separada o carpeta)
-└── recursos/           # Diagramas, datasets de ejemplo
-```
 
 ## Convenciones SQL
 
 - Palabras reservadas SQL en **MAYÚSCULAS** (`SELECT`, `FROM`, `WHERE`, etc.)
 - Nombres de tablas en **PascalCase** (`OrdenDeCompra`, `DetalleFactura`)
+- Nombres de tablas y columnas siempre en singular
 - Nombres de columnas en **PascalCase**
+- Columnas ID son excepción: prefijo `id` + NombreTabla en PascalCase (`idCliente`, `idOrden`)
 - Stored procedures con prefijo `usp_` (`usp_ObtenerClientes`)
 - Funciones con prefijo `ufn_`
 - Vistas con prefijo `vw_`
 - Cada script debe incluir comentario de cabecera con: tema, descripción y autor
+- En definiciones de tabla, un solo espacio entre columna, tipo y restricciones (sin alineación tabular)
+- Los INSERT y SELECT deben tener máximo 5 campos por fila
+- `SELECT` y `FROM` siempre en líneas separadas; los campos comienzan en la misma línea del `SELECT`
+- Los INSERT siempre deben tener las columnas mencionadas en la sentencia
 
 ## Compatibilidad
 
@@ -38,7 +30,5 @@ eiptpl-bd-434/
 ## Estilo de Archivos SQL
 
 - Encoding: UTF-8
-- Un archivo por tema/ejercicio
-- Incluir `USE [NombreDB];` al inicio de cada script
-- Incluir `GO` como separador de batches
-- Los scripts deben ser **idempotentes** cuando sea posible (usar `IF EXISTS` antes de `CREATE`)
+- No usar `GO` en los scripts
+- No usar `USE [DB]` en los scripts; los alumnos seleccionan la base de datos desde el dropdown de SSMS
