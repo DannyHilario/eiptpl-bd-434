@@ -40,7 +40,7 @@ Ejecuta los scripts en este orden:
 
 | # | Archivo | Descripción |
 |---|---------|-------------|
-| 1 | `sesion-7/09-Ejercicio-2/02-create-tables.sql` | Crea las tablas `TipoHabitacion`, `Habitacion`, `Huesped` y `Reservacion` |
+| 1 | `sesion-7/09-Ejercicio-2/02-create-tables.sql` | Crea las tablas `TipoHabitacion`, `Habitacion` (con `NumeroHabitacion`), `Huesped` y `Reservacion` |
 | 2 | `sesion-7/09-Ejercicio-2/03-insert-tipohab.sql` | Inserta los tipos de habitación (Sencilla, Doble, Suite) |
 | 3 | `sesion-7/09-Ejercicio-2/04-insert-habitacion.sql` | Inserta habitaciones con referencia al tipo |
 | 4 | `sesion-7/09-Ejercicio-2/05-insert-huesped.sql` | Inserta huéspedes ficticios |
@@ -59,3 +59,33 @@ Ejecuta los scripts en este orden:
 | `Habitacion` | Ejercicio 2 |
 | `Huesped` | Ejercicio 2 |
 | `Reservacion` | Ejercicio 2 |
+
+---
+
+## Reversa
+
+Para deshacer todo lo instalado en esta sesión, ejecuta los siguientes scripts **en el orden indicado**. El orden es el inverso al de la instalación: primero se eliminan las tablas con dependencias, luego las independientes, y al final la base de datos.
+
+> Asegúrate de tener seleccionada la base de datos **CursoDB** en el dropdown de SSMS antes de ejecutar los pasos 1 y 2.
+
+### Paso R1 — Reversa Ejercicio 2: tablas Hotel Vista
+
+Ejecuta los scripts en este orden:
+
+| # | Archivo | Descripción |
+|---|---------|-------------|
+| 1 | `sesion-7/reversa/01-drop-tables-ej2.sql` | Elimina `Reservacion`, `Huesped`, `Habitacion` y `TipoHabitacion` |
+
+### Paso R2 — Reversa Ejercicio 1: tabla Alumno
+
+| # | Archivo | Descripción |
+|---|---------|-------------|
+| 1 | `sesion-7/reversa/02-drop-table-ej1.sql` | Elimina la tabla `Alumno` |
+
+### Paso R3 — Eliminar la base de datos
+
+> **Antes de ejecutar este script**, selecciona otra base de datos en el dropdown de SSMS (por ejemplo: `master`). No puedes eliminar una base de datos a la que estás conectado.
+
+| # | Archivo | Descripción |
+|---|---------|-------------|
+| 1 | `sesion-7/reversa/03-drop-database.sql` | Elimina la base de datos `CursoDB` por completo |

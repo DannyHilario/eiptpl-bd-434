@@ -1,3 +1,7 @@
+-- Tema:        Ejercicio 2 - Hotel Vista
+-- Descripción: Crear tablas del modelo relacional del hotel
+-- Autor:       [Tu nombre]
+
 -- Tabla Huesped
 CREATE TABLE Huesped (
     idHuesped INT IDENTITY(1,1) PRIMARY KEY,
@@ -20,9 +24,11 @@ CREATE TABLE TipoHabitacion (
 CREATE TABLE Habitacion (
     idHabitacion INT IDENTITY(1,1) PRIMARY KEY,
     idTipoHabitacion INT NOT NULL,
+    NumeroHabitacion VARCHAR(10) NOT NULL,
     DescripcionHabitacion VARCHAR(200),
-    CONSTRAINT FK_Habitacion_TipoHabitacion 
-        FOREIGN KEY (idTipoHabitacion) 
+    CONSTRAINT UQ_NumeroHabitacion UNIQUE (NumeroHabitacion),
+    CONSTRAINT FK_Habitacion_TipoHabitacion
+        FOREIGN KEY (idTipoHabitacion)
         REFERENCES TipoHabitacion(idTipoHabitacion)
         ON DELETE CASCADE
         ON UPDATE CASCADE
@@ -47,6 +53,5 @@ CREATE TABLE Reservacion (
         ON DELETE NO ACTION
         ON UPDATE CASCADE,
     CONSTRAINT CHK_NumeroNoches CHECK (NumeroNoches > 0),
-    CONSTRAINT CHK_PrecioAlMomento CHECK (PrecioAlMomento > 0),
-    CONSTRAINT CHK_FechaIngreso CHECK (FechaIngreso >= CAST(GETDATE() AS DATE))
+    CONSTRAINT CHK_PrecioAlMomento CHECK (PrecioAlMomento > 0)
 );

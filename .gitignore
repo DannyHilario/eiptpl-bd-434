@@ -11,3 +11,6 @@
 # Azure Data Studio
 *.dacpac
 *.bacpac
+.vs
+
+.claude
