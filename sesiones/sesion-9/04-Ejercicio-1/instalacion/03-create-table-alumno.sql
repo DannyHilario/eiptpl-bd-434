@@ -1,12 +1,6 @@
 -- Tema:        Ejercicio 1 - Etapa 4
--- Descripción: Crear tablas Tecnica y Alumno
+-- Descripción: Crear tabla Alumno
 -- Autor:       [Tu nombre]
-
-CREATE TABLE Tecnica (
-    idTecnica INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    Descripcion VARCHAR(100) NOT NULL,
-    Activo BIT NOT NULL DEFAULT 1
-);
 
 CREATE TABLE Alumno (
     idAlumno INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
@@ -18,6 +12,7 @@ CREATE TABLE Alumno (
     Sexo CHAR(1) NOT NULL,
     CURP CHAR(18),
     FechaNacimiento DATE NOT NULL,
+    Activo BIT NOT NULL DEFAULT 1,
     CONSTRAINT fk_Alumno_Tecnica FOREIGN KEY (idTecnica) REFERENCES Tecnica(idTecnica),
     CONSTRAINT chk_Alumno_Sexo CHECK (Sexo IN ('M', 'F'))
 );
