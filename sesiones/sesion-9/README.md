@@ -10,9 +10,9 @@ Este documento describe el orden de ejecución de los scripts SQL de la sesión 
 
 ---
 
-## Diagrama entidad-relación
+## Modelo Relacional
 
-![Diagrama ER de EscuelaDB](assets/diagrama-er.png)
+![Modelo Relacional de EscuelaDB](assets/diagrama-er.png)
 
 ---
 

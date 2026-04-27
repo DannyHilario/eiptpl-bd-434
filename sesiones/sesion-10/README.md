@@ -6,13 +6,13 @@ Este documento describe el orden de ejecución de los scripts SQL de la sesión 
 
 ## Contexto
 
-**AutoFix** es un taller mecánico que registraba sus órdenes de servicio en una hoja de cálculo plana. Este ejercicio modela su base de datos relacional con una tabla de hechos central (`OrdenServicio`) y tres catálogos (`Cliente`, `Vehiculo`, `Servicio`).
+**AutoFix** es un taller mecánico que registraba sus órdenes de servicio en una hoja de cálculo plana. Este ejercicio modela su base de datos relacional con una tabla de hechos central (`Servicio`) y tres catálogos (`Cliente`, `Vehiculo`, `TipoServicio`).
 
 ---
 
-## Diagrama entidad-relación
+## Modelo Relacional
 
-![Diagrama ER de AutoFixDB](assets/diagrama-er.png)
+![Modelo Relacional de AutoFixDB](assets/diagrama-er.png)
 
 ---
 
@@ -43,9 +43,9 @@ Ejecuta en el orden indicado para respetar las llaves foráneas.
 | # | Archivo | Descripción |
 |---|---------|-------------|
 | 1 | `instalacion/02-create-table-cliente.sql` | Catálogo de clientes |
-| 2 | `instalacion/03-create-table-servicio.sql` | Catálogo de tipos de servicio y costo |
+| 2 | `instalacion/03-create-table-tiposervicio.sql` | Catálogo de tipos de servicio y costo |
 | 3 | `instalacion/04-create-table-vehiculo.sql` | Vehículos vinculados a un cliente (FK → Cliente) |
-| 4 | `instalacion/05-create-table-ordenservicio.sql` | Tabla de hechos (FK → Vehiculo y Servicio) |
+| 4 | `instalacion/05-create-table-servicio.sql` | Tabla de hechos (FK → Vehiculo y TipoServicio) |
 
 ---
 
@@ -54,11 +54,11 @@ Ejecuta en el orden indicado para respetar las llaves foráneas.
 | # | Archivo | Descripción |
 |---|---------|-------------|
 | 1 | `instalacion/06-insert-cliente.sql` | 200 clientes (exportados de Sesión 9) |
-| 2 | `instalacion/07-insert-servicio.sql` | 6 tipos de servicio |
+| 2 | `instalacion/07-insert-tiposervicio.sql` | 6 tipos de servicio |
 | 3 | `instalacion/08-insert-vehiculo.sql` | 170 vehículos para clientes 1–155 |
-| 4 | `instalacion/09-insert-ordenservicio.sql` | 200 órdenes distribuidas en vehículos 1–150 |
+| 4 | `instalacion/09-insert-servicio.sql` | 200 servicios distribuidos en vehículos 1–150 |
 
-> El orden importa por las llaves foráneas: clientes y servicios primero, luego vehículos, luego órdenes.
+> El orden importa por las llaves foráneas: clientes y tipos de servicio primero, luego vehículos, luego servicios.
 
 ---
 
@@ -67,9 +67,9 @@ Ejecuta en el orden indicado para respetar las llaves foráneas.
 | Tabla | Registros | Descripción |
 |-------|-----------|-------------|
 | `Cliente` | 200 | Datos del dueño del vehículo |
-| `Servicio` | 6 | Catálogo de servicios con costo fijo |
+| `TipoServicio` | 6 | Catálogo de tipos de servicio con costo fijo |
 | `Vehiculo` | 170 | Vehículos registrados por cliente |
-| `OrdenServicio` | 200 | Cada visita al taller con snapshot del costo |
+| `Servicio` | 200 | Cada visita al taller con snapshot del costo |
 
 ---
 
@@ -78,9 +78,9 @@ Ejecuta en el orden indicado para respetar las llaves foráneas.
 | Escenario | Tablas involucradas |
 |-----------|---------------------|
 | Clientes **sin** vehículo registrado (ids 156–200) | `Cliente` ← `Vehiculo` |
-| Vehículos **sin** órdenes (ids 151–170) | `Vehiculo` ← `OrdenServicio` |
+| Vehículos **sin** servicios (ids 151–170) | `Vehiculo` ← `Servicio` |
 | Clientes con múltiples vehículos (ids 1–15) | `Cliente` → `Vehiculo` |
-| Vehículos con múltiples órdenes | `Vehiculo` → `OrdenServicio` |
+| Vehículos con múltiples servicios | `Vehiculo` → `Servicio` |
 
 ---
 
@@ -96,9 +96,9 @@ Las tablas deben eliminarse en orden inverso al de creación, respetando las dep
 
 | Orden | Tabla | Motivo |
 |-------|-------|--------|
-| 1° | `OrdenServicio` | Depende de `Vehiculo` y de `Servicio`; debe ir primero |
+| 1° | `Servicio` | Depende de `Vehiculo` y de `TipoServicio`; debe ir primero |
 | 2° | `Vehiculo` | Depende de `Cliente`; ya no tiene dependientes |
-| 3° | `Servicio` | Sin dependientes tras eliminar `OrdenServicio` |
+| 3° | `TipoServicio` | Sin dependientes tras eliminar `Servicio` |
 | 4° | `Cliente` | Sin dependientes tras eliminar `Vehiculo` |
 
 ```
