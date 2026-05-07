@@ -11,7 +11,7 @@ Repositorio educativo para la enseñanza de bases de datos relacionales usando *
 - Nombres de tablas en **PascalCase** (`OrdenDeCompra`, `DetalleFactura`)
 - Nombres de tablas y columnas siempre en singular
 - Nombres de columnas en **PascalCase**
-- Columnas ID son excepción: prefijo `id` + NombreTabla en PascalCase (`idCliente`, `idOrden`)
+- Columnas ID son excepción: prefijo `id` + NombreTabla en PascalCase (`idCliente`, `idServicio`)
 - Stored procedures con prefijo `usp_` (`usp_ObtenerClientes`)
 - Funciones con prefijo `ufn_`
 - Vistas con prefijo `vw_`

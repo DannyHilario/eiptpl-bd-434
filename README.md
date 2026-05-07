@@ -53,5 +53,5 @@ eiptpl-bd-434/
 
 - Palabras reservadas en `MAYÚSCULAS` (`SELECT`, `FROM`, `WHERE`)
 - Nombres de tablas y columnas en `PascalCase`
-- Columnas de llave primaria con prefijo `id` (`idCliente`, `idOrden`)
+- Columnas de llave primaria con prefijo `id` (`idCliente`, `idServicio`)
 - Cada script incluye un encabezado con tema, descripción y autor
