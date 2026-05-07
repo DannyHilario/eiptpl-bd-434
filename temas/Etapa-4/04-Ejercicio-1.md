@@ -543,18 +543,17 @@ FROM Tecnica;
 Deberías ver 8 técnicas con sus `idTecnica` del 1 al 8 y `Activo = 1` en todas.
 
 ```sql
-SELECT COUNT(*) AS TotalAlumnos
+SELECT *
 FROM Alumno;
 ```
 
-Deberías obtener **200**.
+Deberías ver 200 registros. Verifica que la columna `idTecnica` varíe entre 1 y 8.
 
 ```sql
-SELECT T.Descripcion, COUNT(A.idAlumno) AS TotalAlumnos
-FROM Tecnica AS T
-INNER JOIN Alumno AS A ON T.idTecnica = A.idTecnica
-GROUP BY T.Descripcion
+SELECT A.idAlumno, A.Nombre, A.PrimerApellido, T.Descripcion
+FROM Alumno AS A
+INNER JOIN Tecnica AS T ON A.idTecnica = T.idTecnica
 ORDER BY T.Descripcion ASC;
 ```
 
-Deberías ver 25 alumnos por cada una de las 8 técnicas.
+Deberías ver 200 registros, cada uno con la descripción de su técnica correspondiente.

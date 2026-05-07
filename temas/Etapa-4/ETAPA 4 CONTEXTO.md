@@ -516,9 +516,9 @@ INNER JOIN Pedido AS P ON C.idCliente = P.idCliente;
 
 ---
 
-## Combinar JOIN con WHERE, ORDER BY y GROUP BY
+## Combinar JOIN con WHERE y ORDER BY
 
-Los JOINs se pueden combinar con todas las cláusulas de `SELECT`:
+Los JOINs se pueden combinar con `WHERE` y `ORDER BY`:
 
 ### Con WHERE
 
@@ -538,41 +538,6 @@ FROM Cliente AS C
 INNER JOIN Pedido AS P ON C.idCliente = P.idCliente
 ORDER BY C.NombreCliente ASC, P.Factura DESC;
 ```
-
-### Con GROUP BY y funciones de agregado
-
-```sql
--- Total de ventas por cliente
-SELECT C.NombreCliente, COUNT(P.idPedido) AS TotalPedidos, SUM(P.Factura) AS Facturacion
-FROM Cliente AS C
-INNER JOIN Pedido AS P ON C.idCliente = P.idCliente
-GROUP BY C.NombreCliente;
-```
-
-**Resultado:**
-
-| NombreCliente    | TotalPedidos | Facturacion |
-|------------------|:------------:|:-----------:|
-| Efraín Solano    | 1            | 64.00       |
-| Laura Aranda     | 1            | 48.00       |
-| Sofia Montemayor | 2            | 252.00      |
-
-### Con HAVING
-
-```sql
--- Solo clientes con más de un pedido
-SELECT C.NombreCliente, COUNT(P.idPedido) AS TotalPedidos
-FROM Cliente AS C
-INNER JOIN Pedido AS P ON C.idCliente = P.idCliente
-GROUP BY C.NombreCliente
-HAVING COUNT(P.idPedido) > 1;
-```
-
-**Resultado:**
-
-| NombreCliente    | TotalPedidos |
-|------------------|:------------:|
-| Sofia Montemayor | 2            |
 
 ---
 
