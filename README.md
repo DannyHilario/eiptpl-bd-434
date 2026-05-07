@@ -15,14 +15,26 @@ Repositorio del curso de **Bases de Datos Relacionales** impartido con Microsoft
 
 ```
 eiptpl-bd-434/
-├── temas/          # Apuntes y material teórico de cada tema
-├── sesion-7/       # Scripts SQL organizados por ejercicio
-│   ├── 06-Ejercicio-1/   # Ejercicio 1: tabla Alumno
-│   └── 09-Ejercicio-2/   # Ejercicio 2: sistema de reservaciones Hotel Vista
-└── datos-evidencia-1/    # Archivos de evidencia por equipo
+├── temas/                        # Apuntes y material teórico por etapa
+│   ├── Etapa-3/                  # Temas 01–09: fundamentos de SQL
+│   └── Etapa-4/                  # Temas 01–04: consultas multitabla (JOINs)
+├── sesiones/                     # Scripts SQL organizados por sesión
+│   ├── sesion-7/                 # CursoDB — ejercicios de DDL y DML
+│   ├── sesion-8/                 # ViajeYA — solución Evidencia 2, Ejercicio 3
+│   ├── sesion-9/                 # EscuelaDB — catálogo de técnicas y alumnos
+│   └── sesion-10/                # AutoFixDB — taller mecánico con 4 tablas
+└── evidencias/                   # Material de evaluación
+    ├── Archivos-Evidencia-1/     # Conjuntos de datos y ejemplo resuelto
+    ├── Archivos-Evidencia-2/     # Descripción y ejercicios por equipo
+    ├── Archivos-Evidencia-3/     # Base de datos RestauranteDB
+    └── Archivos-PIA/             # Descripción y ejercicios del PIA por equipo
 ```
 
+---
+
 ## Temas del curso
+
+### Etapa 3 — Fundamentos de SQL
 
 | # | Tema |
 |---|------|
@@ -36,6 +48,15 @@ eiptpl-bd-434/
 | 08 | Modelo Relacional |
 | 09 | Ejercicio 2 |
 
+### Etapa 4 — Consultas Multitabla
+
+| # | Tema |
+|---|------|
+| 01 | Diferencia entre consultas simples y combinadas |
+| 02 | INNER JOIN |
+| 03 | LEFT JOIN y RIGHT JOIN |
+| 04 | Ejercicio 1 (EscuelaDB) |
+
 ---
 
 ## Cómo usar los scripts
@@ -45,7 +66,7 @@ eiptpl-bd-434/
 3. Abre el archivo `.sql` correspondiente.
 4. Ejecuta con **F5** o el botón **Execute**.
 
-> Los scripts están diseñados para ejecutarse en orden (01, 02, 03…).
+> Cada carpeta de sesión incluye un `README.md` con el orden de ejecución de los scripts.
 
 ---
 
