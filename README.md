@@ -22,7 +22,8 @@ eiptpl-bd-434/
 │   ├── sesion-7/                 # CursoDB — ejercicios de DDL y DML
 │   ├── sesion-8/                 # ViajeYA — solución Evidencia 2, Ejercicio 3
 │   ├── sesion-9/                 # EscuelaDB — catálogo de técnicas y alumnos
-│   └── sesion-10/                # AutoFixDB — taller mecánico con 4 tablas
+│   ├── sesion-10/                # AutoFixDB — taller mecánico con 4 tablas
+│   └── sesion-final/             # CineDB — repaso integral con 8 tablas
 └── evidencias/                   # Material de evaluación
     ├── Archivos-Evidencia-1/     # Conjuntos de datos y ejemplo resuelto
     ├── Archivos-Evidencia-2/     # Descripción y ejercicios por equipo
@@ -56,6 +57,12 @@ eiptpl-bd-434/
 | 02 | INNER JOIN |
 | 03 | LEFT JOIN y RIGHT JOIN |
 | 04 | Ejercicio 1 (EscuelaDB) |
+
+### Sesión Final — Repaso Integral
+
+| Base de datos | Descripción |
+|---------------|-------------|
+| CineDB | 8 tablas, 90 funciones, 100 boletos — 20 consultas que cubren todos los temas del curso |
 
 ---
 
