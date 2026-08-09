@@ -1,6 +1,6 @@
-# Base de Datos I (bd-1, semestre anterior, BD-434)
+# Base de Datos I
 
-Materiales, scripts y ejercicios del curso de **Base de Datos I** impartido con Microsoft SQL Server. Esta carpeta corresponde al semestre ya cursado; el curso continúa en [`../bd-2`](../bd-2) con Base de Datos II.
+Materiales, scripts y ejercicios del curso de **Base de Datos I** (BD-434), semestre **Enero-Junio '26**, impartido con Microsoft SQL Server. El curso continúa en [Base de Datos II](../base-datos-2), semestre **Agosto-Diciembre '26**.
 
 ---
 
@@ -14,7 +14,7 @@ Materiales, scripts y ejercicios del curso de **Base de Datos I** impartido con 
 ## Estructura del repositorio
 
 ```
-bd-1/
+base-datos-1/
 ├── temas/                        # Apuntes y material teórico por etapa
 │   ├── Etapa-3/                  # Temas 01–09: fundamentos de SQL
 │   └── Etapa-4/                  # Temas 01–04: consultas multitabla (JOINs)
@@ -25,10 +25,10 @@ bd-1/
 │   ├── sesion-10/                # AutoFixDB — taller mecánico con 4 tablas
 │   └── sesion-final/             # CineDB — repaso integral con 8 tablas
 └── evidencias/                   # Material de evaluación
-    ├── Archivos-Evidencia-1/     # Conjuntos de datos y ejemplo resuelto
-    ├── Archivos-Evidencia-2/     # Descripción y ejercicios por equipo
-    ├── Archivos-Evidencia-3/     # Base de datos RestauranteDB
-    └── Archivos-PIA/             # Descripción y ejercicios del PIA por equipo
+    ├── archivos-evidencia-1/     # Conjuntos de datos y ejemplo resuelto
+    ├── archivos-evidencia-2/     # Descripción y ejercicios por equipo
+    ├── archivos-evidencia-3/     # Base de datos RestauranteDB
+    └── archivos-pia/             # Descripción y ejercicios del PIA por equipo
 ```
 
 ---

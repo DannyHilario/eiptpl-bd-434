@@ -1,4 +1,4 @@
-# Paquete de instalación - Sesión 8
+# Paquete de instalación — Sesión 8 · ViajeYA
 
 Este documento describe el orden de ejecución de los scripts SQL de la sesión 8. Todos los scripts corresponden a la solución del **Ejercicio 3 (Evidencia 2): ViajeYA**, una agencia de viajes boutique.
 

@@ -6,7 +6,7 @@ De manera **individual**, practicarás la escritura y ejecución de consultas si
 
 ## Base de datos de práctica
 
-Instala **RestauranteDB** siguiendo el plan de instalación incluido en la carpeta [`datos-restaurante/`](https://github.com/DannyHilario/eiptpl-bd-434/tree/main/evidencias/Archivos-Evidencia-3/datos-restaurante). La base de datos contiene una sola tabla (`Comanda`) con 300 registros del año 2025.
+Instala **RestauranteDB** siguiendo el plan de instalación incluido en la carpeta [`datos-restaurante/`](datos-restaurante). La base de datos contiene una sola tabla (`Comanda`) con 300 registros del año 2025.
 
 ---
 

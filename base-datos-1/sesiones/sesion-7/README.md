@@ -1,4 +1,4 @@
-# Paquete de instalación - Sesión 7
+# Paquete de instalación — Sesión 7
 
 Este documento describe el orden de ejecución de los scripts SQL de la sesión 7. Todas las tablas quedan en la base de datos **CursoDB**.
 
