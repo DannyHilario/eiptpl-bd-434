@@ -11,7 +11,7 @@ Introduce **variables T-SQL** (`DECLARE`/`SET`), control de flujo con `IF`/`ELSE
 | 01 | [`01-variables-control-flujo.sql`](01-variables-control-flujo.sql) | Declaración de variables, `IF`/`ELSE`, y primer llamado a `sp_obtenerNombreCliente` |
 | 02 | [`02-sp-obtener-nombre-cliente.sql`](02-sp-obtener-nombre-cliente.sql) | `CREATE PROCEDURE sp_obtenerNombreCliente` |
 | 03 | [`03-consultas-insert-pelicula.sql`](03-consultas-insert-pelicula.sql) | Exploración de `Clasificacion`, `Genero`, `Pelicula`, `Funcion`; `INSERT INTO Pelicula`; primer llamado a `sp_insertarPelicula` |
-| 04 | [`04-alter-sp-insertar-pelicula-validacion.sql`](04-alter-sp-insertar-pelicula-validacion.sql) | `ALTER PROCEDURE sp_insertarPelicula` con validación de `idClasificacion` inexistente |
+| 04 | [`04-alter-sp-insertar-pelicula-validacion.sql`](04-alter-sp-insertar-pelicula-validacion.sql) | `ALTER PROCEDURE sp_insertarPelicula` con validación de `idClasificacion` inexistente — **incompleto, se retoma en Sesión 4** |
 
 ---
 
@@ -99,12 +99,18 @@ END
 - **`sp_obtenerNombreCliente`** ([`02-sp-obtener-nombre-cliente.sql`](02-sp-obtener-nombre-cliente.sql)): dado un `idCliente`, devuelve su nombre completo concatenado, o un mensaje si no existe.
 - **`sp_insertarPelicula`** ([`04-alter-sp-insertar-pelicula-validacion.sql`](04-alter-sp-insertar-pelicula-validacion.sql)): valida que el `idClasificacion` recibido exista antes de continuar con el resto de la lógica del procedimiento.
 
+> **Trabajo en progreso:** este procedimiento quedó incompleto al cierre de la sesión — solo tiene la validación de `idClasificacion` y termina con un `SELECT 'Se saltó el IF'` de prueba en vez del `INSERT` real. La validación de `idGenero` y el `INSERT INTO Pelicula` final se agregan en la Sesión 4.
+
 > **Nota de nomenclatura:** el trabajo de clase usa el prefijo `sp_` para los procedimientos. La convención del repositorio (ver [CLAUDE.md](../../../CLAUDE.md)) es `usp_`; se conserva `sp_` aquí porque es el nombre con el que se creó el objeto en la base de datos durante la sesión.
 
 ---
 
+## Pendiente para Sesión 4
+
+- Agregar a `sp_insertarPelicula` la validación de `idGenero` (misma lógica que la de `idClasificacion`).
+- Reemplazar el `SELECT 'Se saltó el IF'` de prueba por el `INSERT INTO Pelicula` real, una vez pasadas ambas validaciones.
+
 ## Escenarios para seguir practicando
 
-- Agregar a `sp_insertarPelicula` la misma validación para `idGenero`.
 - Hacer que `sp_obtenerNombreCliente` devuelva también el `PrimerApellido` y `SegundoApellido` por separado usando `OUTPUT` parameters.
 - Crear un procedimiento `sp_actualizarPrecioFuncion` que reciba `idFuncion` y `NuevoPrecio`, y valide que el precio no sea negativo antes de actualizar.
