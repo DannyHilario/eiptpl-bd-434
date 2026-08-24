@@ -19,7 +19,8 @@ Las convenciones de código SQL, el motor objetivo y el alcance temático son lo
 base-datos-2/
 └── sesiones/
     ├── sesion-1/          # RestauranteDB (Comanda) — funciones de agregado
-    └── sesion-2/          # CineDB — funciones escalares y vistas
+    ├── sesion-2/          # CineDB — funciones escalares y vistas
+    └── sesion-3/          # CineDB — variables y procedimientos almacenados
 ```
 
 Se irá ampliando conforme avancen las sesiones del semestre.
@@ -30,6 +31,7 @@ Se irá ampliando conforme avancen las sesiones del semestre.
 |--------|---------------|-------------|
 | [Sesión 1](sesiones/sesion-1) | RestauranteDB | Funciones de agregado, `GROUP BY`, `HAVING` — tabla `Comanda` (reutilizada de Base de Datos I) |
 | [Sesión 2](sesiones/sesion-2) | CineDB | Funciones escalares (`UPPER`, `LOWER`, `ROUND`, `CAST`, `SUBSTRING`, `LEN`, concatenación) y vistas (`CREATE VIEW`) — CineDB reutilizada de Base de Datos I |
+| [Sesión 3](sesiones/sesion-3) | CineDB | Variables T-SQL, `IF`/`ELSE`, y procedimientos almacenados (`CREATE`/`ALTER PROCEDURE`) |
 
 ---
 
