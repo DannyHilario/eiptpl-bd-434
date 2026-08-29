@@ -20,7 +20,8 @@ base-datos-2/
 └── sesiones/
     ├── sesion-1/          # RestauranteDB (Comanda) — funciones de agregado
     ├── sesion-2/          # CineDB — funciones escalares y vistas
-    └── sesion-3/          # CineDB — variables y procedimientos almacenados
+    ├── sesion-3/          # CineDB — variables y procedimientos almacenados
+    └── sesion-4/          # CineDB — validaciones y manejo de errores en SPs
 ```
 
 Se irá ampliando conforme avancen las sesiones del semestre.
@@ -32,6 +33,7 @@ Se irá ampliando conforme avancen las sesiones del semestre.
 | [Sesión 1](sesiones/sesion-1) | RestauranteDB | Funciones de agregado, `GROUP BY`, `HAVING` — tabla `Comanda` (reutilizada de Base de Datos I) |
 | [Sesión 2](sesiones/sesion-2) | CineDB | Funciones escalares (`UPPER`, `LOWER`, `ROUND`, `CAST`, `SUBSTRING`, `LEN`, concatenación) y vistas (`CREATE VIEW`) — CineDB reutilizada de Base de Datos I |
 | [Sesión 3](sesiones/sesion-3) | CineDB | Variables T-SQL, `IF`/`ELSE`, y procedimientos almacenados (`CREATE`/`ALTER PROCEDURE`) |
+| [Sesión 4](sesiones/sesion-4) | CineDB | Validaciones en procedimientos almacenados y patrón de manejo de errores con códigos de salida |
 
 ---
 

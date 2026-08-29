@@ -99,7 +99,7 @@ END
 - **`sp_obtenerNombreCliente`** ([`02-sp-obtener-nombre-cliente.sql`](02-sp-obtener-nombre-cliente.sql)): dado un `idCliente`, devuelve su nombre completo concatenado, o un mensaje si no existe.
 - **`sp_insertarPelicula`** ([`04-alter-sp-insertar-pelicula-validacion.sql`](04-alter-sp-insertar-pelicula-validacion.sql)): valida que el `idClasificacion` recibido exista antes de continuar con el resto de la lógica del procedimiento.
 
-> **Trabajo en progreso:** este procedimiento quedó incompleto al cierre de la sesión — solo tiene la validación de `idClasificacion` y termina con un `SELECT 'Se saltó el IF'` de prueba en vez del `INSERT` real. La validación de `idGenero` y el `INSERT INTO Pelicula` final se agregan en la Sesión 4.
+> **Trabajo en progreso:** este procedimiento quedó incompleto al cierre de la sesión — solo tiene la validación de `idClasificacion` y termina con un `SELECT 'Se saltó el IF'` de prueba en vez del `INSERT` real. La validación de `idGenero` y el `INSERT INTO Pelicula` final se completan en la [Sesión 4](../sesion-4).
 
 > **Nota de nomenclatura:** el trabajo de clase usa el prefijo `sp_` para los procedimientos. La convención del repositorio (ver [CLAUDE.md](../../../CLAUDE.md)) es `usp_`; se conserva `sp_` aquí porque es el nombre con el que se creó el objeto en la base de datos durante la sesión.
 
@@ -109,6 +109,8 @@ END
 
 - Agregar a `sp_insertarPelicula` la validación de `idGenero` (misma lógica que la de `idClasificacion`).
 - Reemplazar el `SELECT 'Se saltó el IF'` de prueba por el `INSERT INTO Pelicula` real, una vez pasadas ambas validaciones.
+
+> Resuelto en la [Sesión 4](../sesion-4), que además agrega validaciones de `Duracion` y `AnioEstreno`, y un procedimiento `sp_eliminarPelicula` con baja lógica.
 
 ## Escenarios para seguir practicando
 
