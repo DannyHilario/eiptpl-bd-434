@@ -44,10 +44,25 @@ Ver [`CompuStoreDB/instalacion`](CompuStoreDB/instalacion):
 | 10 | `10-insert-articulo.sql` | 51 artículos |
 | 11 | `11-insert-articulocategoria.sql` | 55 relaciones Articulo-Categoria (4 artículos en 2 categorías, para ilustrar la N:N) |
 | 12 | `12-insert-cliente.sql` | 25 clientes |
+| 13 | `13-usp-insertar-cliente.sql` | `usp_insertarCliente` — alta de cliente |
+| 14 | `14-usp-eliminar-cliente.sql` | `usp_eliminarCliente` — baja lógica de cliente |
+| 15 | `15-usp-habilitar-cliente.sql` | `usp_habilitarCliente` — reactivar un cliente dado de baja |
+| 16 | `16-usp-actualizar-cliente.sql` | `usp_actualizarCliente` — sobrescribe los datos principales de un cliente |
 
 `Pedido`, `DetallePedido` y `HistoricoPrecioArticulo` se crean vacías — son tablas de hechos/historial, no catálogos, y no había datos reales que reutilizar para ellas.
 
 Reversa en [`CompuStoreDB/reversa`](CompuStoreDB/reversa): elimina las tablas en orden inverso a las llaves foráneas y luego la base de datos.
+
+### CRUD de Cliente (`13`–`16`)
+
+Los 4 procedimientos siguen el patrón de "guard clauses" con códigos de salida visto en las sesiones 3 y 4 (`@ErrCodigo`/`@ErrMensaje`, `'000000'` para éxito, `RETURN` en cada validación fallida) — sin `TRY CATCH` todavía. Requieren `USE CompuStoreDB; GO` antes del `CREATE`/`ALTER PROCEDURE` porque, a diferencia de una tabla o un `INSERT`, un procedimiento debe ser la primera instrucción de su batch.
+
+- **`usp_insertarCliente`**: valida `Sexo` (`'M'`/`'F'`), y que `Correo`/`Telefono` no estén ya registrados, antes del `INSERT`.
+- **`usp_eliminarCliente`**: valida que el cliente exista; hace baja lógica (`Activo = 0`) y actualiza `FechaUltimaModificacion`.
+- **`usp_habilitarCliente`**: valida que el cliente exista y que no esté ya activo, antes de reactivarlo (`Activo = 1`).
+- **`usp_actualizarCliente`**: valida que el cliente exista, `Sexo`, y que `Correo`/`Telefono` no choquen con **otro** cliente (`idCliente <> @p_idCliente`), antes de sobrescribir sus datos principales.
+
+Los 4 se probaron manualmente en la instancia de AWS (casos de error y de éxito) antes de quedar documentados aquí.
 
 ---
 
