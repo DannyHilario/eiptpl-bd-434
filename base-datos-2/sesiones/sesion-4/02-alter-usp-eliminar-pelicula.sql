@@ -1,4 +1,4 @@
-ALTER PROCEDURE sp_eliminarPelicula
+ALTER PROCEDURE usp_eliminarPelicula
     @p_idPelicula int
 AS
 BEGIN

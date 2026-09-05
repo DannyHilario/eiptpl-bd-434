@@ -4,7 +4,7 @@
  * 
  */
 
-CREATE PROCEDURE sp_obtenerNombreCliente
+CREATE PROCEDURE usp_obtenerNombreCliente
 	@p_idCliente int
 AS
 BEGIN

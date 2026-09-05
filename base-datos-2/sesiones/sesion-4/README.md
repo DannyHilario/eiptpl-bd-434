@@ -8,14 +8,14 @@ Continúa con **procedimientos almacenados** sobre **CineDB**, retomando el trab
 
 | # | Archivo | Contenido |
 |---|---------|-----------|
-| 01 | [`01-alter-sp-insertar-pelicula-validacion.sql`](01-alter-sp-insertar-pelicula-validacion.sql) | `ALTER PROCEDURE sp_insertarPelicula` — se completan las validaciones pendientes de Sesión 3 |
-| 02 | [`02-alter-sp-eliminar-pelicula.sql`](02-alter-sp-eliminar-pelicula.sql) | `ALTER PROCEDURE sp_eliminarPelicula` — validación de existencia y baja lógica (`Activo = 0`) |
+| 01 | [`01-alter-usp-insertar-pelicula-validacion.sql`](01-alter-usp-insertar-pelicula-validacion.sql) | `ALTER PROCEDURE usp_insertarPelicula` — se completan las validaciones pendientes de Sesión 3 |
+| 02 | [`02-alter-usp-eliminar-pelicula.sql`](02-alter-usp-eliminar-pelicula.sql) | `ALTER PROCEDURE usp_eliminarPelicula` — validación de existencia y baja lógica (`Activo = 0`) |
 
 ---
 
 ## Contexto
 
-Esta sesión reutiliza CineDB tal como quedó instalada en Base de Datos I, más los procedimientos `sp_insertarPelicula` y `sp_eliminarPelicula` creados en clase (no versionados en scripts previos).
+Esta sesión reutiliza CineDB tal como quedó instalada en Base de Datos I, más los procedimientos `usp_insertarPelicula` y `usp_eliminarPelicula` creados en clase (no versionados en scripts previos).
 
 ## Prerequisito
 
@@ -54,7 +54,7 @@ SELECT @ErrCodigo as ErrCodigo,
 - `'000000'` se reserva por convención para "todo salió bien".
 - Cada validación fallida tiene su propio código (`'000001'`, `'000002'`, ...) y hace `RETURN` para cortar la ejecución del procedimiento.
 
-### `sp_insertarPelicula` — validaciones agregadas
+### `usp_insertarPelicula` — validaciones agregadas
 
 Retomando el pendiente de la Sesión 3 ([`04-alter-sp-insertar-pelicula-validacion.sql`](../sesion-3/04-alter-sp-insertar-pelicula-validacion.sql)), se completó el procedimiento con las siguientes validaciones, en orden:
 
@@ -65,7 +65,7 @@ Retomando el pendiente de la Sesión 3 ([`04-alter-sp-insertar-pelicula-validaci
 
 Si todas las validaciones pasan, se ejecuta el `INSERT INTO Pelicula` real.
 
-### `sp_eliminarPelicula` — validación y baja lógica
+### `usp_eliminarPelicula` — validación y baja lógica
 
 Se valida que el `idPelicula` recibido exista en la tabla `Pelicula` (`'000001'`); si no existe, se corta con `RETURN`. Si existe, en vez de un `DELETE` se hace una **baja lógica**:
 
@@ -81,9 +81,9 @@ Esto evita romper llaves foráneas de otras tablas (por ejemplo `Funcion`) que r
 
 ## Nota de nomenclatura
 
-El trabajo de clase usa el prefijo `sp_` para los procedimientos. La convención del repositorio (ver [CLAUDE.md](../../../CLAUDE.md)) es `usp_`; se conserva `sp_` aquí porque es el nombre con el que se creó el objeto en la base de datos durante clases previas.
+En clase estos procedimientos se crearon originalmente con el prefijo `sp_`. En la [Sesión 5](../sesion-5) se renombraron a `usp_` (tanto en CineDB como en estos scripts) para alinearlos con la convención del repositorio (ver [CLAUDE.md](../../../CLAUDE.md)) — `sp_` queda reservado por SQL Server para procedimientos del sistema.
 
 ## Escenarios para seguir practicando
 
-- Agregar a `sp_eliminarPelicula` una validación adicional: no permitir la baja si la película tiene funciones futuras programadas.
+- Agregar a `usp_eliminarPelicula` una validación adicional: no permitir la baja si la película tiene funciones futuras programadas.
 - Comparar en la práctica la baja lógica (`UPDATE Activo = 0`) contra un `DELETE` directo cuando existen registros dependientes en `Boleto`/`Funcion`, y documentar qué error arroja SQL Server en ese caso.

@@ -1,4 +1,4 @@
-ALTER PROCEDURE sp_insertarPelicula
+ALTER PROCEDURE usp_insertarPelicula
 	@p_idClasificacion int,
 	@p_idGenero int,
 	@p_Nombre varchar(200),

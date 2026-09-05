@@ -26,7 +26,7 @@ END
 
 SELECT * FROM Cliente WHERE idCliente = 6
 
-EXECUTE sp_obtenerNombreCliente 8
+EXECUTE usp_obtenerNombreCliente 8
 
 
 

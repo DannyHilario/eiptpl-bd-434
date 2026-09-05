@@ -6,6 +6,8 @@ Retoma el ejercicio del PIA de Base de Datos I ([equipo-3.md](../../../base-dato
 
 ## Modelo
 
+![Modelo Relacional de CompuStoreDB](assets/diagrama-er.png)
+
 7 tablas:
 
 | Tabla | Descripción |
@@ -61,3 +63,11 @@ Reversa en [`CompuStoreDB/reversa`](CompuStoreDB/reversa): elimina las tablas en
 - `UNIQUE` en `Categoria.Nombre`; `Articulo` (`Nombre`, `Marca`); `Cliente.Correo` y `Cliente.Telefono`; y en el par (`idArticulo`, `idCategoria`) de `ArticuloCategoria`, para no duplicar la misma relación.
 - `CHECK` en precios y cantidades (`> 0`), en `Cliente.Sexo` (`IN ('M', 'F')`), y en `HistoricoPrecioArticulo` para que `PrecioNuevo` sea distinto de `PrecioAnterior` (no registrar un "cambio" que no cambió nada).
 - `DEFAULT 1` en todos los `Activo`, y `DEFAULT GETDATE()` en los campos de auditoría.
+
+---
+
+## Refactor de nomenclatura: `sp_` → `usp_` en CineDB
+
+Aprovechando esta sesión, se renombraron los 3 procedimientos almacenados de CineDB creados en las sesiones 3 y 4 (`sp_obtenerNombreCliente`, `sp_insertarPelicula`, `sp_eliminarPelicula`) al prefijo `usp_`, tanto en la instancia de AWS como en los scripts del repo (ver notas de nomenclatura en [sesión 3](../sesion-3/README.md) y [sesión 4](../sesion-4/README.md#nota-de-nomenclatura)).
+
+`sp_` está reservado por SQL Server para procedimientos del sistema (siempre se busca primero en `master`); `usp_` es la convención definida en el [CLAUDE.md](../../../CLAUDE.md) del repo. En la instancia, cada procedimiento se recreó (`DROP` + `CREATE`) bajo el nuevo nombre con el mismo cuerpo, y se verificó que siguieran funcionando igual (`EXECUTE` de cada uno con datos válidos e inválidos).
