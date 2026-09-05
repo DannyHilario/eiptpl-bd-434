@@ -21,7 +21,8 @@ base-datos-2/
     ├── sesion-1/          # RestauranteDB (Comanda) — funciones de agregado
     ├── sesion-2/          # CineDB — funciones escalares y vistas
     ├── sesion-3/          # CineDB — variables y procedimientos almacenados
-    └── sesion-4/          # CineDB — validaciones y manejo de errores en SPs
+    ├── sesion-4/          # CineDB — validaciones y manejo de errores en SPs
+    └── sesion-5/          # CompuStoreDB — modelado, N:N, auditoría y constraints
 ```
 
 Se irá ampliando conforme avancen las sesiones del semestre.
@@ -34,6 +35,7 @@ Se irá ampliando conforme avancen las sesiones del semestre.
 | [Sesión 2](sesiones/sesion-2) | CineDB | Funciones escalares (`UPPER`, `LOWER`, `ROUND`, `CAST`, `SUBSTRING`, `LEN`, concatenación) y vistas (`CREATE VIEW`) — CineDB reutilizada de Base de Datos I |
 | [Sesión 3](sesiones/sesion-3) | CineDB | Variables T-SQL, `IF`/`ELSE`, y procedimientos almacenados (`CREATE`/`ALTER PROCEDURE`) |
 | [Sesión 4](sesiones/sesion-4) | CineDB | Validaciones en procedimientos almacenados y patrón de manejo de errores con códigos de salida |
+| [Sesión 5](sesiones/sesion-5) | CompuStoreDB | Modelado desde cero (relación N:N con tabla puente, historial de precios), campos de auditoría, baja lógica y constraints (`PK`, `FK`, `UNIQUE`, `CHECK`, `DEFAULT`) |
 
 ---
 
